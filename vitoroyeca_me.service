@@ -1,0 +1,15 @@
+[Unit]
+Description=Vito Royeca website systemd service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/npm run dev
+WorkingDirectory=/path/to/vitoroyeca_me
+RestartSec=10
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=vitoroyeca_me
+
+[Install]
+WantedBy=multi-user.target
