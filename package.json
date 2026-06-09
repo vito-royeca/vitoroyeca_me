@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "export HTTPS=true&&SSL_CRT_FILE=./ssl/vitoroyeca_me.crt&&SSL_KEY_FILE=./ssl/vitoroyeca_me.key vite",
+    "dev": "export HTTPS=true&&SSL_CRT_FILE=./ssl/vitoroyeca_me.crt&&SSL_KEY_FILE=./ssl/vitoroyeca_me.key vite --host 0.0.0.0",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

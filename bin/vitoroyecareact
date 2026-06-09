@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# PROVIDE: vitoroyecareact
+# REQUIRE: LOGIN cleanvar
+# KEYWORD: shutdown
+
+# Put this script in /usr/local/etc/rc.d and make it executable. Then add
+# "vitoroyecareact_enable=YES" to /etc/rc.conf to enable it
+
+PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
+
+. /etc/rc.subr
+
+name="vitoroyecareact"
+workdir="/var/db/vitoroyeca_me"
+npm_cmd="/usr/local/bin/npm run dev &"
+
+start_cmd="${name}_start"
+stop_cmd=":"
+
+: ${dummy_svcj_options:=""}
+
+vitoroyecareact_start()
+{
+       su -m www -c "cd ${workdir} && ${npm_cmd}"
+}
+
+load_rc_config $name
+run_rc_command "$1"
