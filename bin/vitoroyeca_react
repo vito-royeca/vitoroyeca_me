@@ -1,17 +1,21 @@
 #!/bin/sh
 
-# PROVIDE: vitoroyecareact
+# PROVIDE: vitoroyeca_react
 # REQUIRE: LOGIN cleanvar
 # KEYWORD: shutdown
 
 # Put this script in /usr/local/etc/rc.d and make it executable. Then add
-# "vitoroyecareact_enable=YES" to /etc/rc.conf to enable it
+# "vitoroyeca_react_enable=YES" to /etc/rc.conf to enable it, i.e.:
+# `cp bin/vitoroyeca_react /usr/local/etc/rc.d/vitoroyeca_react`
+# `chmod a+x /usr/local/etc/rc.d/vitoroyeca_react`
+# `service vitoroyeca_react enable`
+# To start the service, run "service vitoroyeca_react start" or reboot the system.
 
 PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
 
 . /etc/rc.subr
 
-name="vitoroyecareact"
+name="vitoroyeca_react"
 workdir="/var/db/vitoroyeca_me"
 npm_cmd="/usr/local/bin/npm run dev &"
 
@@ -20,7 +24,7 @@ stop_cmd=":"
 
 : ${dummy_svcj_options:=""}
 
-vitoroyecareact_start()
+vitoroyeca_react_start()
 {
        su -m www -c "cd ${workdir} && ${npm_cmd}"
 }
