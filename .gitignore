@@ -8,6 +8,7 @@ node_modules
 .next
 next-env.d.ts
 .vercel
+tmp
 
 # Logs
 logs
